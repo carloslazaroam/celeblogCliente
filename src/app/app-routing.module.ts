@@ -9,6 +9,7 @@ import { UserNewComponent } from './component/user/UserNewAdmin/UserNew/UserNew.
 import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UserGuard } from './guards/user.guard';
+import { PostPlistComponent } from './component/post/PostPlistAdmin/PostPlist/PostPlist.component';
 
 
 
@@ -21,6 +22,8 @@ const routes: Routes = [
   { path: 'admin/user/edit/:id', component: UserEditComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
   { path: 'admin/user/new', component: UserNewComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard], canLoad: [AuthGuard]},
+  { path: 'post', component: PostPlistComponent},
+  
   
   
   

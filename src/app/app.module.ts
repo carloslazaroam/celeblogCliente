@@ -19,6 +19,7 @@ import { UserNewComponent } from './component/user/UserNewAdmin/UserNew/UserNew.
 import { UserEditComponent } from './component/user/UserEditAdmin/UserEdit/UserEdit.component';
 import { LoginComponent } from './component/login/login.component';
 import { GenerateUsuarioComponent } from './component/user/generate-usuario/generate-usuario.component';
+import { PostPlistComponent } from './component/post/PostPlistAdmin/PostPlist/PostPlist.component';
 
 
 
@@ -29,16 +30,19 @@ import { GenerateUsuarioComponent } from './component/user/generate-usuario/gene
         AppComponent,
         MenuComponent,
         HomecomponentComponent,
-        UserPlistcomponentComponent,
-        UserViewComponent,
         SearchUnroutedComponent,
         DropdownRegisterPageComponent,
         PaginationUnroutedComponent,
+        LoginComponent,
+
+        UserPlistcomponentComponent,
         UserDeleteComponent,
         UserNewComponent,
         UserEditComponent,
-        LoginComponent,
-        GenerateUsuarioComponent
+        UserViewComponent,
+        GenerateUsuarioComponent,
+
+        PostPlistComponent
        
         
         /*SearchUnroutedComponent,
