@@ -1,0 +1,47 @@
+
+<div class="container mt-5">
+  <div class="row">
+      <div class="col">
+          <h1 class="text-center mb-5">Datos de {{user?.nombre + ' ' + user.apellidos}} </h1>
+
+          <table class="table table-bordered table-striped">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{user?.id}}</td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td>{{user?.nombre}}</td>
+                </tr>
+                <tr>
+                    <td>Apellidos</td>
+                    <td>{{user?.apellidos}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{user?.email}}</td>
+                </tr>
+                <tr>
+                    <td>Usuarios</td>
+                    <td>{{user?.usuario}}</td>
+                </tr>
+
+                <tr>
+                    <td>Tipo de usuario</td>
+                    <td>{{user?.tipousuario.nombre}}</td>
+                </tr>
+                
+                    
+              
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="oLocation.back()">Close</button>
+          
+
+
+          
+                 
+      </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Lista de Usuarios</h1>      
+      <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
+        <app-generate-usuario (enviar)="generar($event)"></app-generate-usuario>
+        <a [routerLink]="['/admin/user/new']" class="btn btn-primary mx-3">Crear usuario</a>
+        <app-search-unrouted [placeHolder]="'Buscar user'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+        
+        <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer?.totalRegisters"
+          (eeRpp)="this.setRpp($event)">
+        </app-dropdown-register-page>
+        
+      </div>
+      
+      <div class="col-md">
+        <app-pagination-unrouted [nPage]="responseFromServer?.actualPage + 1" [nTotalPages]="totalPages"
+          (eePage)="setPage($event)"></app-pagination-unrouted>
+      </div>
+      
+      
+      <!--
+      <div class="col-md text-end">
+        
+       <h5 class="text-muted">Total de registros en la consulta {{responseFromServer?.length}}</h5>
+      </div>
+    -->
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th (click)="setOrder('id')">ID
+              <div *ngIf="sortField=='id'&&sortDirection=='asc'">^</div>
+              <div *ngIf="sortField=='id'&&sortDirection=='desc'">_</div>
+            </th>
+            <th (click)="setOrder('nombre')">Nombre
+              <div *ngIf="sortField=='nombre'&&sortDirection=='asc'">^</div>
+              <div *ngIf="sortField=='nombre'&&sortDirection=='desc'">_</div>
+            </th>
+            <th (click)="setOrder('apellidos')">Apellidos
+              <div *ngIf="sortField=='apellidos'&&sortDirection=='asc'">^</div>
+              <div *ngIf="sortField=='apellidos'&&sortDirection=='desc'">_</div>
+            </th>
+            <th (click)="setOrder('email')">Email</th>
+            <th (click)="setOrder('usuario')">Usuario</th>
+            <th (click)="setOrder('password')">Contraseña</th>
+            <th (click)="setOrder('tipousuario.id')">Tipousuario</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of responseFromServer?.content">
+            <td>{{user.id}}</td>
+            <td>{{user.nombre}}</td>
+            <td>{{user.apellidos}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.usuario}}</td>
+            <td>{{user.tipousuario.id}}</td>            
+            <td>
+              <div class="btn-group" role="group" aria-label="Herramientas">
+                <button class="btn btn-sm btn-primary" [routerLink]="['/admin/user/view',user.id]">
+                  ver
+                </button>
+                <button class="btn btn-sm btn-warning" [routerLink]="['/admin/user/edit',user.id]">
+                  editar
+                </button>
+                <button class="btn btn-sm btn-danger" [routerLink]="['/admin','user','delete',user.id]">
+                  borrar
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="generateInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Cambios realizados</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              {{msg}}
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="getPage()">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
