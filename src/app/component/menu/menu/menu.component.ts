@@ -23,7 +23,6 @@ export class MenuComponent implements OnInit {
     });
     this.oAuthService.checkToken();
   }
-
   logout(){
     this.oAuthService.logOut();
   }
