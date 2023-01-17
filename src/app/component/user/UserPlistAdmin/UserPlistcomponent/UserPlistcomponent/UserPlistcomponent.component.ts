@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
+import { DomSanitizer, bootstrapApplication } from '@angular/platform-browser';
 import { IPage, IUser } from 'src/app/model/generic';
 import { User, UserResponse } from 'src/app/model/user.interface';
 import { UserService } from 'src/app/service/User.service';
@@ -28,10 +28,13 @@ export class UserPlistcomponentComponent implements OnInit {
   generated: number;
   generados: boolean = false;
   msg: string = "";
+  public previsualizacion: string
+  public archivos: any = []
 
   constructor(
     private oUserService: UserService,
-    private oLocation: Location
+    private oLocation: Location,
+    private sanitizer: DomSanitizer
   ) { 
     this.getPage();
   }
@@ -59,6 +62,7 @@ export class UserPlistcomponentComponent implements OnInit {
   }
 
   setRpp(rpp: number) {
+    this.page = 0;
     this.numberOfElements = rpp;
     this.getPage();
   }
@@ -93,6 +97,40 @@ export class UserPlistcomponentComponent implements OnInit {
       }
     })
   }
+
+  capturarFile(event): any {
+    const archivoCapturado = event.target.files[0]
+    this.extraerBase64(archivoCapturado).then((images: any) => {
+      this.previsualizacion = images.base;
+      console.log(images)
+    })
+    this.archivos.push(archivoCapturado)
+  }
+
+  extraerBase64 = async ($event: any) => new Promise((resolve,reject) => {
+    try {
+      const unsafeImg = window.URL.createObjectURL($event);
+      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+      const reader = new FileReader();
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          blob: $event,
+          image,
+          base: reader.result
+        });
+      };
+      reader.onerror = error => {
+        resolve({
+          blob: $event,
+          image,
+          base: null
+        });
+      };
+    } catch (e) {
+      return null;
+    }
+  })
   
 
 }

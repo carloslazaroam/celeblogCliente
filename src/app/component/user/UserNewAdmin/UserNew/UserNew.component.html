@@ -3,9 +3,7 @@
     <div class="col">
       <h1 class="text-center mb-5">Crear Usuario</h1>
 
-      <form novalidate [formGroup]="oForm">
-
-
+      <form [formGroup]="oForm">
 
         <div class="mb-3 row">
           <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
@@ -69,9 +67,26 @@
         </div>
 
         <div class="mb-3 row">
+          <label for="inputName" class="col-sm-2 col-form-label">Imagen de usuario</label>
+          <div class="col-sm-4 has-validation">
+            <input  type="file" class="form-control" id="inputusuario" (change)="loadFile($event)" formControlName="file"
+              [class.is-invalid]="CampoNoValido('file')"
+              [class.is-valid]="!CampoNoValido('file') && touched('file')">
+              
+            <div id="inputusuarioFeedback" class="invalid-feedback" *ngIf="CampoNoValido('file')">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="previsualizacion">
+          <img width="150px" height="150px" [src]="previsualizacion">
+        </div>
+
+        <div class="mb-3 row">
           <label for="inputusuario" class="col-sm-2 col-form-label">Tipo de usuario</label>
           <div class="col-sm-4 has-validation">
-            <select name="tipousuario" id="tipousuario" formControlName="tipousuario">
+            <select name="tipousuario" id="tipousuario" formControlName="id_tipousuario">
               <option [value]="tipousuario.id" *ngFor="let tipousuario of this.tipousuario">{{ tipousuario.nombre }}</option>
             </select>
           </div>

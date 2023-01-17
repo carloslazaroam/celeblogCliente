@@ -62,13 +62,11 @@ export class UserService {
     return this.oHttp.put<number>(this.url, body, {headers});
   }
 
-  newOne(user: User): Observable<number> { 
+  newOne(user: any): Observable<number> { 
     const headers = {
-      'content-type': 'application/json',
       'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
     }  
-    const body = JSON.stringify(user);
-    return this.oHttp.post<number>(this.url, body, {headers});
+    return this.oHttp.post<number>(this.url, user, {headers});
   }
 
   generateUsuario(cantidad: number): Observable<number> {

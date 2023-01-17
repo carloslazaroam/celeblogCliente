@@ -19,7 +19,7 @@ export interface User {
     apellidos:   string;
     email:       string;
     usuario:     string;
-    imagen?:       string;
+    images?:       string;
     password?:    string,
     tipousuario?: Tipousuario;
 }

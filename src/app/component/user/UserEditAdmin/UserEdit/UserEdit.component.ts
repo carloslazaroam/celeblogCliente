@@ -56,7 +56,7 @@ export class UserEditComponent implements OnInit {
         this.user = data;
         this.oForm.setValue({
           id: data.id,
-          nombre: data.apellidos,
+          nombre: data.nombre,
           apellidos: data.apellidos,
           email: data.email,
           usuario: data.usuario,
@@ -81,7 +81,7 @@ export class UserEditComponent implements OnInit {
     if (this.oForm.valid) {
       const user = {
         id: this.oForm.value.id,
-        nombre: this.oForm.value.apellidos,
+        nombre: this.oForm.value.nombre,
         apellidos: this.oForm.value.apellidos,
         email: this.oForm.value.email,
         usuario: this.oForm.value.usuario,
@@ -92,7 +92,7 @@ export class UserEditComponent implements OnInit {
 
           //open bootstrap modal here
           this.modalTitle = "Cambios realizados";
-          this.modalContent = "El usuario " + data + " ha sido actualizado";
+          this.modalContent = "El usuario " + user.id + " ha sido actualizado";
           this.showModal();
         }
       })

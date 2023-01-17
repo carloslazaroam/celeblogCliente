@@ -15,6 +15,7 @@ export class UserViewComponent implements OnInit {
 
   id:number = 0;
   user: User = null;
+  images!: string;
   constructor(
     private oActivatedRoute: ActivatedRoute,
     private oUserService: UserService,
@@ -30,11 +31,20 @@ export class UserViewComponent implements OnInit {
       next: (resp: User) => {
         console.log(resp)
         this.user = resp;
+        this.images = this.getURLimage(this.user.images)
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
       }
     })
+  }
+
+  getURLimage(images: string): string{
+    let img = images.replace(/\\/g, "/");
+    let src = img.substring(img.indexOf('/') +1,img.length)
+    let result = 'http://localhost:4000' + src.substring(src.indexOf('/'), src.length)
+    return result;
+
   }
 
 }
