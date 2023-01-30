@@ -24,7 +24,9 @@ export class UserEditComponent implements OnInit {
     apellidos: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
     email: ['', [Validators.required, Validators.email  ]],
     usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-    tipousuario: ['', [Validators.required]]
+    tipousuario: ['', [Validators.required]],
+    
+
   });
   mimodal: string = "miModal";
   myModal: any;
@@ -60,7 +62,8 @@ export class UserEditComponent implements OnInit {
           apellidos: data.apellidos,
           email: data.email,
           usuario: data.usuario,
-          tipousuario: data.tipousuario.id
+          tipousuario: data.tipousuario.id,
+          
         });
       }
     })
@@ -85,7 +88,8 @@ export class UserEditComponent implements OnInit {
         apellidos: this.oForm.value.apellidos,
         email: this.oForm.value.email,
         usuario: this.oForm.value.usuario,
-        id_tipousuario: this.oForm.value.tipousuario
+        id_tipousuario: this.oForm.value.tipousuario,
+        
       }
       this.oUserService.updateOne(user).subscribe({
         next: (data: number) => {

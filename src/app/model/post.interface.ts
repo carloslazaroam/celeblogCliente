@@ -11,12 +11,11 @@ export interface PostResponse {
 }
 
 export interface Post {
-    id:         string;
+    id?:         string;
     title:      string;
     contenido:  string;
-    datetime:   Date;
-    validacion: boolean;
-    usuario:    User;
+    datetime:   string;
+    usuario?:    User;
 }
 
 export interface IPage<T> {

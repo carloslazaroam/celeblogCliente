@@ -60,6 +60,7 @@ export class AuthService {
   logOut(){
     if(sessionStorage.getItem("token") != null){
         sessionStorage.removeItem("token");
+        sessionStorage.removeItem("imagen");
         this.stateLogin.next(false);
     }
   }

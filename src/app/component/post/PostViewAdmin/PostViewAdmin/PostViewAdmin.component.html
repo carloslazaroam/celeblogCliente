@@ -1,0 +1,62 @@
+
+<div class="container mt-5">
+  <div class="row">
+      <div class="col">
+
+        
+          <h1 class="text-center mb-5" style="font-family: 'Serpentine';color: palevioletred;-webkit-text-stroke: 1px black;">Datos del post {{post?.id}} </h1>
+
+         
+
+          <table class="table table-bordered table-striped">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{post?.id}}</td>
+                </tr>
+                <tr>
+                    <td>Titulo</td>
+                    <td>{{post?.title}}</td>
+                </tr>
+                <tr>
+                    <td>Contenido</td>
+                    <td>{{post?.contenido}}</td>
+                </tr>
+                <tr>
+                    <td>Fecha</td>
+                    <td>{{post?.datetime}}</td>
+                </tr>
+                
+
+                <tr>
+                    <td>Usuario al que pertenece</td>
+                    <td>{{post?.usuario.usuario}}</td>
+                </tr>
+                
+                    
+              
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="oLocation.back()">Close</button>
+          
+
+
+          
+                 
+      </div>
+  </div>
+</div>
+
+<style>
+    .user-image{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .btn btn-secondary{
+        display: flex;
+        justify-content: center;
+    }
+    
+</style>

@@ -19,57 +19,61 @@ export class PostService {
         this.url = `${environment.baseURL}${this.entityURL}`;
     }
 
-    getPostPlist(page: number, size: number, termino: string, strSortField: string, strOrderDirection: string): Observable<PostResponse> {
+    getPostPlist(page: number, size: number, termino: string, strSortField: string, strOrderDirection: string ): Observable<PostResponse> {
         let params = new HttpParams()
-            .set("title", termino)
-            .set("page", page)
-            .set("size", size);
-
-        if (strSortField != "") { //&sort=codigo,[asc|desc]
+          .set("title", termino)
+          .set("page", page)
+          .set("size", size);
+    
+          if (strSortField != "") { //&sort=codigo,[asc|desc]
             if (strOrderDirection != "") {
-                params = params.set("sort", strSortField + "," + strOrderDirection);
+              params = params.set("sort", strSortField + "," + strOrderDirection);
             } else {
-                params = params.set("sort", strSortField);
+              params = params.set("sort", strSortField);
             }
-        }
-        const headers = {
+          }
+          const headers = {
             'content-type': 'application/json',
             'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
-        }
-        return this.oHttp.get<PostResponse>(`${this.url}/all`, { headers, params: params });
-    }
+          }
+        return this.oHttp.get<PostResponse>(`${this.url}/all`, {headers, params: params });
+      }
 
-    getOne(id: number): Observable<Post> {
+      getOne(id: number): Observable<Post> {
         const headers = {
-            'content-type': 'application/json',
-            'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
+          'content-type': 'application/json',
+          'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
         }
-        return this.oHttp.get<Post>(this.url + "/" + id, { headers });
-    }
-    removeOne(id: number): Observable<number> {
-        const headers = {
-            'content-type': 'application/json',
-            'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
-        }
-        return this.oHttp.delete<number>(this.url + '/' + id, { headers });
-    }
-    updateOne(user: Post): Observable<number> {
-        const headers = {
-            'content-type': 'application/json',
-            'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
-        }
-        const body = JSON.stringify(user);
-        return this.oHttp.put<number>(this.url, body, { headers });
-    }
+        return this.oHttp.get<Post>(this.url + "/" + id, {headers});
+      }
 
-    newOne(user: Post): Observable<number> {
+      newOne(post: any): Observable<number> { 
         const headers = {
-            'content-type': 'application/json',
-            'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
+          'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
+        }  
+        return this.oHttp.post<number>(this.url, post, {headers});
+      }
+
+      updateOne(post: Post): Observable<number> {
+        const headers = {
+          'content-type': 'application/json',
+          'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
         }
-        const body = JSON.stringify(user);
-        return this.oHttp.post<number>(this.url, body, { headers });
-    }
+        const body = JSON.stringify(post);
+        return this.oHttp.put<number>(this.url, body, {headers});
+      }
+
+      removeOne(id: number): Observable<number> {
+        const headers = {
+          'content-type': 'application/json',
+          'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
+        }
+        return this.oHttp.delete<number>(this.url + '/' + id, {headers});
+      }
+
+      
+
+    
 
 
 }

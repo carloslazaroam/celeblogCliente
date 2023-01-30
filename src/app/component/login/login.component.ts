@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit{
           this.logged = resp.ok;
           console.log(resp);
           if(resp.ok){
+            console.log(resp.imagen)
+            sessionStorage.setItem("imagen", JSON.stringify(this.getURLimage(resp.imagen)));
             sessionStorage.setItem("token", resp.token);
             this.oAuthService.stateLogin.next(true);
             this.error = false;
@@ -54,6 +56,18 @@ export class LoginComponent implements OnInit{
       this.loginUser.markAllAsTouched();
     }
   }
+
+  getURLimage(images: string): string{
+    let img = images.replace(/\\/g, "/");
+    let src = img.substring(img.indexOf('/') +1,img.length)
+    let result = 'http://localhost:4000' + src.substring(src.indexOf('/'), src.length)
+    return result;
+  }
+
+  
+
+  
+  
 
   CampoNoValido(campo: string) {
     return (

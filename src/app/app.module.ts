@@ -20,6 +20,14 @@ import { UserEditComponent } from './component/user/UserEditAdmin/UserEdit/UserE
 import { LoginComponent } from './component/login/login.component';
 import { GenerateUsuarioComponent } from './component/user/generate-usuario/generate-usuario.component';
 import { PostPlistComponent } from './component/post/PostPlistAdmin/PostPlist/PostPlist.component';
+import { PostViewAdminComponent } from './component/post/PostViewAdmin/PostViewAdmin/PostViewAdmin.component';
+import { PostNewAdminComponent } from './component/post/PostNewAdmin/PostNewAdmin/PostNewAdmin.component';
+import { PostEditAdminComponent } from './component/post/PostEditAdmin/PostEditAdmin/PostEditAdmin.component';
+import { PostDeleteAdminComponent } from './component/post/PostDeleteAdmin/PostDeleteAdmin/PostDeleteAdmin.component';
+import { ComentarioPlistAdminComponent } from './component/comentario/ComentarioPlistAdmin/ComentarioPlistAdmin/ComentarioPlistAdmin.component';
+import { ComentarioViewAdminComponent } from './component/comentario/ComentarioViewAdmin/ComentarioViewAdmin/ComentarioViewAdmin.component';
+import { ComentarioDeleteAdminComponent } from './component/comentario/ComentarioDeleteAdmin/ComentarioDeleteAdmin/ComentarioDeleteAdmin.component';
+import { CategoriaPlistAdminComponent } from './component/categoria/CategoriaPlistAdmin/CategoriaPlistAdmin/CategoriaPlistAdmin.component';
 
 
 
@@ -42,7 +50,18 @@ import { PostPlistComponent } from './component/post/PostPlistAdmin/PostPlist/Po
         UserViewComponent,
         GenerateUsuarioComponent,
 
-        PostPlistComponent
+        PostPlistComponent,
+        PostViewAdminComponent,
+        PostNewAdminComponent,
+        PostEditAdminComponent,
+        PostDeleteAdminComponent,
+
+        ComentarioPlistAdminComponent,
+        ComentarioViewAdminComponent,
+        ComentarioDeleteAdminComponent,
+
+        CategoriaPlistAdminComponent
+        
        
         
         /*SearchUnroutedComponent,
@@ -59,8 +78,7 @@ import { PostPlistComponent } from './component/post/PostPlistAdmin/PostPlist/Po
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
-        ReactiveFormsModule,
-        
+        ReactiveFormsModule
     ]
 })
 export class AppModule { }

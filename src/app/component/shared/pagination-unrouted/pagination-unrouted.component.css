@@ -1,0 +1,10 @@
+.page-link {
+
+    background-color: palevioletred;
+}
+
+.active > .page-link {
+    background-color: lightblue;
+   
+
+}

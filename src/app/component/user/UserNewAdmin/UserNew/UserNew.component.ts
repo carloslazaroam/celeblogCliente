@@ -8,7 +8,6 @@ import { Tipousuario } from 'src/app/model/generic';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { read } from '@popperjs/core';
-import { DomSanitizer } from '@angular/platform-browser';
 declare let bootstrap: any;
 
 
@@ -37,7 +36,7 @@ export class UserNewComponent implements OnInit {
     private oFormBuilder: FormBuilder,
     private oTipousuarioService: TipousuarioService,
     public oLocation: Location,
-    private sanitizer: DomSanitizer,
+   
    
   ) { }
 
@@ -51,7 +50,7 @@ export class UserNewComponent implements OnInit {
       usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       password: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       file: ['',[Validators.required]],
-      images: ['',[Validators.required]],
+      images: [''],
       id_tipousuario: ['', [Validators.required]],
       folder: ['Perfiles', [Validators.required]]
     });
