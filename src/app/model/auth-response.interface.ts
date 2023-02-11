@@ -2,7 +2,7 @@ export interface AuthResponse {
   ok:    boolean;
   name:  string;
   token: string;
-  rol?:   string;
+  tipousuario?:   string;
   imagen?: string;
 }
 export interface CheckTokenResponse {

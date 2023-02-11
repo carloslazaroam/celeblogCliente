@@ -14,6 +14,7 @@ export class PostViewAdminComponent implements OnInit {
 
   id:number = 0;
   post: Post = null;
+  images!: string
 
   constructor(
     private oActivatedRoute: ActivatedRoute,
@@ -29,12 +30,21 @@ export class PostViewAdminComponent implements OnInit {
       next: (resp: Post) => {
         console.log(resp)
         this.post = resp;
+        this.images = this.getURLimage(this.post.images)
         
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
       }
     })
+  }
+
+  getURLimage(images: string): string{
+    let img = images.replace(/\\/g, "/");
+    let src = img.substring(img.indexOf('/') +1,img.length)
+    let result = 'http://localhost:4000' + src.substring(src.indexOf('/'), src.length)
+    return result;
+
   }
 
 }

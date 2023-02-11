@@ -2,6 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CategoriaResponse } from 'src/app/model/categoria';
 import { CategoriaService } from 'src/app/service/categoria.service';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+declare let bootstrap: any;
 
 @Component({
   selector: 'app-CategoriaPlistAdmin',
@@ -21,17 +24,28 @@ export class CategoriaPlistAdminComponent implements OnInit {
   generated: number;
   generados: boolean = false;
   msg: string = "";
+  id: number = 0;
+  nombre: string = "";
+  tipocategoria: number = 0;
+  
+ 
+
 
   constructor(
+    private oActivatedRoute: ActivatedRoute,
     private oCategoriaService: CategoriaService,
-  ) { }
+    protected oLocation: Location,
+  ) { 
+    this.id = oActivatedRoute.snapshot.params['id'];
+  }
 
   ngOnInit() {
     this.getPage();
+    
   }
 
   getPage() {
-    this.oCategoriaService.getCategoriaPlist(this.page, this.numberOfElements, this.strTermFilter, this.sortField, this.sortDirection)
+    this.oCategoriaService.getCategoriaPlist(this.page, this.numberOfElements, this.strTermFilter, this.sortField, this.sortDirection , this.tipocategoria)
       .subscribe({
         next: (resp: CategoriaResponse) => {
           console.log(resp)
@@ -68,6 +82,19 @@ export class CategoriaPlistAdminComponent implements OnInit {
       this.sortDirection = "asc";
     }
     this.getPage();
+  }
+
+  removeOne() {
+    this.oCategoriaService.removeOne(this.id).subscribe({
+      next: (data: number) => {
+        this.msg = "Se ha eliminado la categoria " + this.id;
+        const myModal = new bootstrap.Modal('#removeInfo', {
+          keyboard: false
+        })
+        myModal.show();        
+        this.oLocation.back();
+      }
+    })
   }
 
 }

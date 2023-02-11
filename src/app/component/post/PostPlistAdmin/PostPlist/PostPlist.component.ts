@@ -32,7 +32,7 @@ export class PostPlistComponent implements OnInit {
   }
 
   getPage() {
-    this.oPostService.getPostPlist(this.page, this.numberOfElements, this.strTermFilter, this.sortField, this.sortDirection)
+    this.oPostService.getPostPlist(this.page, this.numberOfElements, this.strTermFilter, this.sortField, this.sortDirection, 0)
       .subscribe({
         next: (resp: PostResponse) => {
           console.log(resp)

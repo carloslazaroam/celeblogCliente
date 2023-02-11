@@ -44,7 +44,7 @@ export class UserNewComponent implements OnInit {
 
     this.getTipoUsuario();
     this.oForm = this.oFormBuilder.group({
-      nombre: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+      nombre: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(10)]],
       apellidos: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       email: ['', [Validators.required, Validators.email  ]],
       usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],

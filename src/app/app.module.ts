@@ -28,6 +28,11 @@ import { ComentarioPlistAdminComponent } from './component/comentario/Comentario
 import { ComentarioViewAdminComponent } from './component/comentario/ComentarioViewAdmin/ComentarioViewAdmin/ComentarioViewAdmin.component';
 import { ComentarioDeleteAdminComponent } from './component/comentario/ComentarioDeleteAdmin/ComentarioDeleteAdmin/ComentarioDeleteAdmin.component';
 import { CategoriaPlistAdminComponent } from './component/categoria/CategoriaPlistAdmin/CategoriaPlistAdmin/CategoriaPlistAdmin.component';
+import { CategoriaDeleteAdminComponent } from './component/categoria/CategoriaDeleteAdmin/CategoriaDeleteAdmin/CategoriaDeleteAdmin.component';
+import { ComentarioNewAdminComponent } from './component/comentario/ComentarioNewAdmin/ComentarioNewAdmin/ComentarioNewAdmin.component';
+import { CategoriaNewAdminComponent } from './component/categoria/CategoriaNewAdmin/CategoriaNewAdmin/CategoriaNewAdmin.component';
+import { ComentarioEditAdminComponent } from './component/comentario/ComentarioEditAdmin/ComentarioEditAdmin/ComentarioEditAdmin.component';
+import { PostPlistUserComponent } from './component/post/unrouted/PostPlistUser/PostPlistUser/PostPlistUser.component';
 
 
 
@@ -56,11 +61,17 @@ import { CategoriaPlistAdminComponent } from './component/categoria/CategoriaPli
         PostEditAdminComponent,
         PostDeleteAdminComponent,
 
+        PostPlistUserComponent,
+
         ComentarioPlistAdminComponent,
         ComentarioViewAdminComponent,
         ComentarioDeleteAdminComponent,
+        ComentarioNewAdminComponent,
+        ComentarioEditAdminComponent,
 
-        CategoriaPlistAdminComponent
+        CategoriaPlistAdminComponent,
+        CategoriaDeleteAdminComponent,
+        CategoriaNewAdminComponent
         
        
         

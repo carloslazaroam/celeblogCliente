@@ -26,10 +26,9 @@ export class UserService {
       .set("size", size);
 
       if (strSortField != "") { //&sort=codigo,[asc|desc]
+        params = params.set("sort", strSortField);
         if (strOrderDirection != "") {
-          params = params.set("sort", strSortField + "," + strOrderDirection);
-        } else {
-          params = params.set("sort", strSortField);
+          params = params.set("direction", strOrderDirection);
         }
       }
       const headers = {

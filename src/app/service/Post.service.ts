@@ -19,18 +19,25 @@ export class PostService {
         this.url = `${environment.baseURL}${this.entityURL}`;
     }
 
-    getPostPlist(page: number, size: number, termino: string, strSortField: string, strOrderDirection: string ): Observable<PostResponse> {
+    getPostPlist(page: number, size: number, termino: string, strSortField: string, strOrderDirection: string, id_user?: number,id_categoria?: number ): Observable<PostResponse> {
         let params = new HttpParams()
           .set("title", termino)
           .set("page", page)
+          
           .set("size", size);
     
           if (strSortField != "") { //&sort=codigo,[asc|desc]
+            params = params.set("sort", strSortField);
             if (strOrderDirection != "") {
-              params = params.set("sort", strSortField + "," + strOrderDirection);
-            } else {
-              params = params.set("sort", strSortField);
+              params = params.set("direction", strOrderDirection);
             }
+          }
+          if (id_user){
+            params = params.set("id_user", id_user)
+          }
+
+          if (id_categoria){
+            params = params.set("id_categoria", id_categoria)
           }
           const headers = {
             'content-type': 'application/json',

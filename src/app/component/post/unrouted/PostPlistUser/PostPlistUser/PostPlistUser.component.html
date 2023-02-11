@@ -1,0 +1,196 @@
+
+<div class="container mt-5">
+ 
+  <div class="row">
+    <div class="col">
+  
+      <nav >
+        <ul class="menu-horizontal">
+          <li><a >CATEGORIAS</a></li>
+          <li *ngFor="let tipocategoria of this.categorias">
+            <a  >{{tipocategoria.nombre}}</a>
+            <ul class="menu-vertical">
+              <li *ngFor="let categoria of tipocategoria.categoria" (click)="this.setCategoriaFilter(categoria.id)">
+
+                <a>{{categoria.nombre}}</a>
+              </li>
+
+              
+            </ul>
+          </li>
+          
+          <div class="col-md text-end d-flex justify-content-center align-items-center mb-4">
+            <app-search-unrouted [placeHolder]="'Buscar post (Por titulo)'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+            </div>  
+    
+        </ul>
+      </nav>
+
+      
+       
+      
+      <!--   
+      <div class="col-md text-end d-flex justify-content-center align-items-center mb-4 ">
+        <a [routerLink]="['/admin/post/new']" class="btn mx-3" id="botoncrear">Crear post</a>
+        <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer?.totalRegisters"
+          (eeRpp)="this.setRpp($event)">
+        </app-dropdown-register-page>
+      </div>
+
+       -->
+      
+      
+      <!--
+      <div class="col-md text-end">
+        
+       <h5 class="text-muted">Total de registros en la consulta {{responseFromServer?.length}}</h5>
+      </div>
+    -->
+
+    <div class="post-container container ">
+      <div class="first hero" *ngFor="let post of responseFromServer?.content">
+        <img class="hero-profile-img" [src]="this.getURLimage( post.images)" alt="">
+        <div class="hero-description-bk"></div>
+        <div class="hero-logo">
+          <img  [src]="this.getURLimage( post.usuario.images)" alt="" style="width: 80px;">
+        </div>
+        <div class="hero-description">
+          <p>{{post.title}}</p>
+        </div>
+        <div  class="hero-date">
+          <p>20.02.2019</p>
+        </div>
+        <div class="hero-btn">
+          <a [routerLink]="['/admin/post/view',post.id]">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+
+    
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr class="lostr">
+            <th (click)="setOrder('id')">ID
+              <div *ngIf="sortField=='id'&&sortDirection=='asc'">^</div>
+              <div *ngIf="sortField=='id'&&sortDirection=='desc'">_</div>
+            </th>
+            <th (click)="setOrder('title')">Titulo
+              <div *ngIf="sortField=='title'&&sortDirection=='asc'">^</div>
+              <div *ngIf="sortField=='title'&&sortDirection=='desc'">_</div>
+            </th>
+            <th (click)="setOrder('contenido')">Contenido
+              <div *ngIf="sortField=='contenido'&&sortDirection=='asc'">^</div>
+              <div *ngIf="sortField=='contenido'&&sortDirection=='desc'">_</div>
+            </th>
+            <th (click)="setOrder('datetime')">Data</th>
+            <th (click)="setOrder('usuario')">Usuario</th>
+            <th (click)="setOrder('categoria')">Categoria</th>
+            <th (click)="setOrder('image')">Imagen</th>
+            <th (click)="setOrder('usuario')">Botones</th>
+            
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of responseFromServer?.content">
+            <td style="font-family: 'Serpentine';">{{post.id}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.contenido}}</td>
+            <td>{{post.datetime}}</td>
+            <td>{{post.usuario.usuario}}</td> 
+            <td>{{post.categoria.nombre}}</td> 
+            <td><img [src]="this.getURLimage( post.images)" alt="user-profile" width="35px" height="35px" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;border-radius: 10px;"></td> 
+                    
+            <td>
+              <div class="btn-group" role="group" aria-label="Herramientas">
+                <button class="btn btn-sm btn-primary" [routerLink]="['/admin/post/view',post.id]">
+                  <img width="20" src="/assets/eyeicono.png" alt="cositas"/>
+                </button>
+                <button class="btn btn-sm btn-warning" [routerLink]="['/admin/post/edit',post.id]">
+                  <img width="20" src="/assets/hand.png" alt="cositas" style="-webkit-border-image: 1px black"/>
+                </button>
+                <button class="btn btn-sm btn-danger" [routerLink]="['/admin','post','delete',post.id]">
+                  <img width="20" src="/assets/papelera.png" alt="cositas"/>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="col-md" id="pagi">
+        <app-pagination-unrouted [nPage]="responseFromServer?.actualPage + 1" [nTotalPages]="totalPages"
+          (eePage)="setPage($event)"></app-pagination-unrouted>
+
+          
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="generateInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Cambios realizados</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              {{msg}}
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="getPage()">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<style>
+  .lostr{
+    color: #fff;
+    background: palevioletred;
+  }
+
+   td{
+    font-family: Serpentine;
+    font-size: 15px;
+    
+    line-height: 1.2;
+    font-weight: unset!important;
+    
+    
+    
+
+  }
+
+  table {
+    
+    border: solid palevioletred 0;
+    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+    border-radius: 1em;
+  overflow: hidden;
+    
+  }
+  #pagi{
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
+  }
+
+  #botoncrear {
+    background-color: none;
+    color: palevioletred;
+    border: solid palevioletred ;
+}
+  
+  #botoncrear:hover {
+    background-color: palevioletred;
+    color: white;
+}
+
+  
+
+  
+</style>

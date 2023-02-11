@@ -1,0 +1,29 @@
+input{
+text-align: center;
+  border: none;
+  height: 70px;
+  width: 70px;
+  background: white;
+  
+  color: rgb(170, 170, 170);
+  font-size: 1.4rem;
+}
+
+input[type="text"] {
+    border: none;
+    height: 30px;
+    width: 300px;
+    outline: none;
+    margin-bottom: 20%;
+    padding-left: 40px;
+   
+    color: rgb(110,110,110);
+    
+    font-family: 'Lato', sans-serif;
+    
+    text-align: center;
+    background: white;
+  
+  color: rgb(170, 170, 170);
+  font-size: 1.4rem;
+}

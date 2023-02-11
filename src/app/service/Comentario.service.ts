@@ -26,10 +26,9 @@ export class ComentarioService {
           .set("size", size);
     
           if (strSortField != "") { //&sort=codigo,[asc|desc]
+            params = params.set("sort", strSortField);
             if (strOrderDirection != "") {
-              params = params.set("sort", strSortField + "," + strOrderDirection);
-            } else {
-              params = params.set("sort", strSortField);
+              params = params.set("direction", strOrderDirection);
             }
           }
           const headers = {
@@ -53,6 +52,22 @@ export class ComentarioService {
           'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
         }
         return this.oHttp.delete<number>(this.url + '/' + id, {headers});
+      }
+
+      newOne(comentario: any): Observable<number> { 
+        const headers = {
+          'content-type': 'application/json',
+          'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
+        }  
+        return this.oHttp.post<number>(this.url, JSON.stringify(comentario), {headers});
+      }
+
+      updateOne(comentario: any): Observable<number> { 
+        const headers = {
+          'content-type': 'application/json',
+          'Authorization': `Bearer ${sessionStorage.getItem("token")?.replaceAll('"', '')}`,
+        }  
+        return this.oHttp.put<number>(this.url, JSON.stringify(comentario), {headers});
       }
 
 }

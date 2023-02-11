@@ -1,0 +1,187 @@
+.carousel-caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .85);
+    z-index: 1;
+    font-family: 'HP Simplified';
+    font-weight: 700;
+    font-weight: bold;
+    font-size: 100px;
+}
+
+
+
+
+
+.father-container {
+    display: flex;
+    background-color: #445960;
+    border-radius: 20px;
+    font-family: 'HP Simplified';
+    padding: 0 3rem;
+    
+}
+.texto-container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    width: 100%;
+}
+.imagen-container{
+    width: 100%;
+}
+.imagen-container img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.father-container2 {
+    display: flex;
+    background-color: ivory;
+
+}
+
+.hola{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #cdcdcd;
+    color: black;
+    height: 400px;
+    margin-top: 40px;
+
+}
+
+.hola1{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+}
+
+.hola2{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+}
+
+.img4 {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 20px;
+    width: 400px;
+    height: 400px;
+    transform: translate(-100%, 15%) rotate(-24deg)
+    
+    
+  }
+  .img3 {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 20px;
+    width: 400px;
+    height: 400px;
+    transform: translate(-30%, 5%) rotate(-8deg)
+  }
+  .img2 {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 20px;
+    width: 400px;
+    height: 400px;
+    transform: translate(40%, 5%) rotate(8deg)
+  }
+  .img1 {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 20px;
+    width: 400px;
+    height: 400px;
+    transform: translate(110%, 15%) rotate(24deg)
+    
+  }
+
+  .imagenes{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 20px;
+  }
+
+  .variedad-celeblog{
+    padding-top: 12rem;
+    display: flex;
+    justify-content: center;
+    padding-left: 20rem;
+    padding-right: 20rem;
+    line-height: 32px;
+    font-family: 'Merriweather Black';
+    padding-bottom: 10rem;
+   
+  }
+
+  .categorias{
+    font-size: 200px;
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    padding-left: 20rem;
+    padding-right: 20rem;
+    line-height: 32px;
+    font-family: 'HP Simplified';
+    
+    
+  }
+
+  .line-4 hr {
+    height: 1px;
+    border: 0;
+    background: white;
+  }
+
+  .adios{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #445960;
+    color: black;
+    height: 400px;
+    margin-top: 40px;
+
+}
+
+.adios1{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+}
+
+.adios2{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+}
+
+#redes svg {
+margin:0 8px;
+
+}
+  
+
+
+

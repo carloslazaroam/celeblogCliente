@@ -1,6 +1,7 @@
 import { User } from "./user.interface";
 import { FormControl } from "@angular/forms";
 import { Pageable, Sort } from "./generic";
+import { Categoria } from "./categoria";
 
 
 export interface PostResponse {
@@ -15,7 +16,9 @@ export interface Post {
     title:      string;
     contenido:  string;
     datetime:   string;
+    images: string;
     usuario?:    User;
+    categoria?: Categoria;
 }
 
 export interface IPage<T> {

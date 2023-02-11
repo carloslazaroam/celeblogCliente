@@ -18,6 +18,11 @@ import { ComentarioPlistAdminComponent } from './component/comentario/Comentario
 import { ComentarioViewAdminComponent } from './component/comentario/ComentarioViewAdmin/ComentarioViewAdmin/ComentarioViewAdmin.component';
 import { ComentarioDeleteAdminComponent } from './component/comentario/ComentarioDeleteAdmin/ComentarioDeleteAdmin/ComentarioDeleteAdmin.component';
 import { CategoriaPlistAdminComponent } from './component/categoria/CategoriaPlistAdmin/CategoriaPlistAdmin/CategoriaPlistAdmin.component';
+import { CategoriaDeleteAdminComponent } from './component/categoria/CategoriaDeleteAdmin/CategoriaDeleteAdmin/CategoriaDeleteAdmin.component';
+import { ComentarioNewAdminComponent } from './component/comentario/ComentarioNewAdmin/ComentarioNewAdmin/ComentarioNewAdmin.component';
+import { CategoriaNewAdminComponent } from './component/categoria/CategoriaNewAdmin/CategoriaNewAdmin/CategoriaNewAdmin.component';
+import { ComentarioEditAdminComponent } from './component/comentario/ComentarioEditAdmin/ComentarioEditAdmin/ComentarioEditAdmin.component';
+import { PostPlistUserComponent } from './component/post/unrouted/PostPlistUser/PostPlistUser/PostPlistUser.component';
 
 
 
@@ -37,11 +42,17 @@ const routes: Routes = [
   { path: 'admin/post/edit/:id', component: PostEditAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
   { path: 'admin/post/delete/:id', component: PostDeleteAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
 
+  { path: 'postuser', component: PostPlistUserComponent},
+
   { path: 'comentario', component: ComentarioPlistAdminComponent},
   { path: 'admin/comentario/view/:id', component: ComentarioViewAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
   { path: 'admin/comentario/delete/:id', component: ComentarioDeleteAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
+  { path: 'admin/comentario/new', component: ComentarioNewAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
+  { path: 'admin/comentario/edit/:id', component: ComentarioEditAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
 
   { path: 'categoria', component: CategoriaPlistAdminComponent},
+  { path: 'admin/categoria/delete/:id', component: CategoriaDeleteAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
+  { path: 'admin/categoria/new', component: CategoriaNewAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
   
   
   

@@ -1,0 +1,70 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center mb-5" style="font-family: 'Serpentine';color: palevioletred;-webkit-text-stroke: 1px black;">Editar post</h1>
+  
+        <form [formGroup]="oForm">
+
+            <div class="mb-3 row">
+                <label for="inputcontenido" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-4 has-validation">
+                  <input type="text" class="form-control" id="inputName" formControlName="title"
+                    [class.is-invalid]="CampoNoValido('title')"
+                    [class.is-valid]="!CampoNoValido('title') && touched('title')">
+                  <div *ngIf="CampoNoValido('title')" id="inputNameFeedback" class="invalid-feedback">
+                    El campo es obligatorio.
+                  </div>
+                </div>
+              </div>
+  
+          <div class="mb-3 row">
+            <label for="inputcontenido" class="col-sm-2 col-form-label">Contenido</label>
+            <div class="col-sm-4 has-validation">
+              <input type="text" class="form-control" id="inputName" formControlName="contenido"
+                [class.is-invalid]="CampoNoValido('contenido')"
+                [class.is-valid]="!CampoNoValido('contenido') && touched('contenido')">
+              <div *ngIf="CampoNoValido('contenido')" id="inputNameFeedback" class="invalid-feedback">
+                El campo es obligatorio.
+              </div>
+            </div>
+          </div>
+  
+          <button (click)="onSubmit()" class="btn btn-primary">Guardar</button>
+          
+  
+        </form>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="oLocation.back()" style="margin-top: 20px;">Close</button>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+  
+          {{modalContent}}
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    form {
+      justify-content: center;
+      
+    }
+  </style>
