@@ -23,6 +23,10 @@ import { ComentarioNewAdminComponent } from './component/comentario/ComentarioNe
 import { CategoriaNewAdminComponent } from './component/categoria/CategoriaNewAdmin/CategoriaNewAdmin/CategoriaNewAdmin.component';
 import { ComentarioEditAdminComponent } from './component/comentario/ComentarioEditAdmin/ComentarioEditAdmin/ComentarioEditAdmin.component';
 import { PostPlistUserComponent } from './component/post/unrouted/PostPlistUser/PostPlistUser/PostPlistUser.component';
+import { PostViewUserComponent } from './component/post/unrouted/PostViewUser/PostViewUser/PostViewUser.component';
+import { UserNewUserComponent } from './component/user/unrouted/UserNewUser/UserNewUser/UserNewUser.component';
+import { PostNewUserComponent } from './component/post/unrouted/PostNewUser/PostNewUser/PostNewUser.component';
+import { PostEditUserComponent } from './component/post/unrouted/PostEditUser/PostEditUser/PostEditUser.component';
 
 
 
@@ -36,6 +40,9 @@ const routes: Routes = [
   { path: 'admin/user/new', component: UserNewComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard], canLoad: [AuthGuard]},
 
+  { path: 'usuari/user/new', component: UserNewUserComponent},
+  { path: 'user/usuari/view/:id', component: UserViewComponent},
+
   { path: 'post', component: PostPlistComponent},
   { path: 'admin/post/view/:id', component: PostViewAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
   { path: 'admin/post/new', component: PostNewAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
@@ -43,6 +50,12 @@ const routes: Routes = [
   { path: 'admin/post/delete/:id', component: PostDeleteAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
 
   { path: 'postuser', component: PostPlistUserComponent},
+  { path: 'user/post/view/:id', component: PostViewUserComponent},
+  { path: 'user/post/new', component: PostNewUserComponent},
+  { path: 'user/post/edit/:id', component: PostEditUserComponent},
+  
+  
+  
 
   { path: 'comentario', component: ComentarioPlistAdminComponent},
   { path: 'admin/comentario/view/:id', component: ComentarioViewAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},

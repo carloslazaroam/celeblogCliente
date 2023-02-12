@@ -33,6 +33,11 @@ import { ComentarioNewAdminComponent } from './component/comentario/ComentarioNe
 import { CategoriaNewAdminComponent } from './component/categoria/CategoriaNewAdmin/CategoriaNewAdmin/CategoriaNewAdmin.component';
 import { ComentarioEditAdminComponent } from './component/comentario/ComentarioEditAdmin/ComentarioEditAdmin/ComentarioEditAdmin.component';
 import { PostPlistUserComponent } from './component/post/unrouted/PostPlistUser/PostPlistUser/PostPlistUser.component';
+import { PostViewUserComponent } from './component/post/unrouted/PostViewUser/PostViewUser/PostViewUser.component';
+import { UserNewUserComponent } from './component/user/unrouted/UserNewUser/UserNewUser/UserNewUser.component';
+import { UserViewUserComponent } from './component/user/unrouted/UserViewUser/UserViewUser/UserViewUser.component';
+import { PostNewUserComponent } from './component/post/unrouted/PostNewUser/PostNewUser/PostNewUser.component';
+import { PostEditUserComponent } from './component/post/unrouted/PostEditUser/PostEditUser/PostEditUser.component';
 
 
 
@@ -55,13 +60,20 @@ import { PostPlistUserComponent } from './component/post/unrouted/PostPlistUser/
         UserViewComponent,
         GenerateUsuarioComponent,
 
+        UserNewUserComponent,
+        UserViewUserComponent,
+
         PostPlistComponent,
         PostViewAdminComponent,
         PostNewAdminComponent,
         PostEditAdminComponent,
         PostDeleteAdminComponent,
 
+
         PostPlistUserComponent,
+        PostViewUserComponent,
+        PostNewUserComponent,
+        PostEditUserComponent,
 
         ComentarioPlistAdminComponent,
         ComentarioViewAdminComponent,

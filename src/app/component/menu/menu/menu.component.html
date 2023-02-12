@@ -1,3 +1,5 @@
+<!--
+
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: palevioletred;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" style="font-family: 'Merriweather';">Celeblog</a>
@@ -45,6 +47,37 @@
     </div>
   </div>
 </nav>
+-->
+
+<header>
+  <div class="wrapper">
+    <div class="logo">Celeblog</div>
+    
+    <nav>
+      <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="home">Home</a>
+      <a class="nav-link" aria-current="page" routerLink="usuario" *ngIf="this.logged">User</a>
+      <a class="nav-link" aria-current="page" routerLink="post" *ngIf="this.logged">Post</a>
+      <a class="nav-link" aria-current="page" routerLink="comentario" *ngIf="this.logged">Comentario</a>
+      <a class="nav-link" aria-current="page" routerLink="categoria" *ngIf="this.logged">Categoria</a>
+      <a class="nav-link" aria-current="page" routerLink="postuser" *ngIf="!this.logged">Blog</a>
+      <a class="nav-link" aria-current="page"  [routerLink]="['/user/post/new']" *ngIf="!this.logged">Publicar</a>
+
+      <a class="nav-link" aria-current="page" routerLink="/login" *ngIf="!logged">Login</a>
+      <a (click)="logout()" class="nav-link c-pointer" aria-current="page" routerLink="/home" *ngIf="this.logged">Logout</a>
+      <img [src]="this.images" alt="user-profile" width="70px" height="50px" class="imagenusuario" style="margin-left: 28rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;" *ngIf="logged">
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+
+
 
 <style>
   .imagenusuario {
@@ -56,3 +89,17 @@
 }
 
 </style>
+
+<script>
+  $(document).ready(function(){
+
+$(window).scroll(function(){
+  if( $(this).scrollTop() > 0 ){
+    $('header').addClass('header2');
+  } else {
+    $('header').removeClass('header2');
+  }
+});
+
+});
+</script>

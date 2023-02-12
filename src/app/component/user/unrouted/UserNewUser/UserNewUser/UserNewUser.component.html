@@ -1,0 +1,137 @@
+<div class="container mt-5" style="background-color: white; color: black; border-radius: 20px; margin-bottom: 40px;box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; font-family: 'HP Simplified';">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Crear Usuario</h1>
+
+      <form [formGroup]="oForm">
+
+        <div class="mb-3 row">
+          <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" id="inputName" formControlName="nombre"
+              [class.is-invalid]="CampoNoValido('nombre')"
+              [class.is-valid]="!CampoNoValido('nombre') && touched('nombre')">
+            <div *ngIf="CampoNoValido('nombre')" id="inputNameFeedback" class="invalid-feedback">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputSurname" class="col-sm-2 col-form-label">Apellidos</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" id="inputSurname" formControlName="apellidos"
+              [class.is-invalid]="CampoNoValido('apellidos')"
+              [class.is-valid]="!CampoNoValido('apellidos') && touched('apellidos')">
+            <div id="inputSurnameFeedback" class="invalid-feedback" *ngIf="CampoNoValido('apellidos')">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mb-3 row">
+          <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" id="inputEmail" formControlName="email"
+              [class.is-invalid]="CampoNoValido('email')"
+              [class.is-valid]="!CampoNoValido('email') && touched('email')">
+            <div id="inputEmailFeedback" class="invalid-feedback" *ngIf="CampoNoValido('email')">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputusuario" class="col-sm-2 col-form-label">usuario</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" id="inputusuario" formControlName="usuario"
+              [class.is-invalid]="CampoNoValido('usuario')"
+              [class.is-valid]="!CampoNoValido('usuario') && touched('usuario')">
+            <div id="inputusuarioFeedback" class="invalid-feedback" *ngIf="CampoNoValido('usuario')">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="password" class="col-sm-2 col-form-label">password</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" id="inputusuario" formControlName="password"
+              [class.is-invalid]="CampoNoValido('password')"
+              [class.is-valid]="!CampoNoValido('password') && touched('password')">
+            <div id="inputusuarioFeedback" class="invalid-feedback" *ngIf="CampoNoValido('password')">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputName" class="col-sm-2 col-form-label">Imagen de usuario</label>
+          <div class="col-sm-4 has-validation">
+            <input  type="file" class="form-control" id="inputusuario" (change)="loadFile($event)" formControlName="file"
+              [class.is-invalid]="CampoNoValido('file')"
+              [class.is-valid]="!CampoNoValido('file') && touched('file')">
+              
+            <div id="inputusuarioFeedback" class="invalid-feedback" *ngIf="CampoNoValido('file')">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="previsualizacion">
+          <img width="150px" height="150px" [src]="previsualizacion">
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputusuario" class="col-sm-2 col-form-label">Tipo de usuario</label>
+          <div class="col-sm-4 has-validation">
+            <select name="tipousuario" id="tipousuario" formControlName="id_tipousuario">
+              <option [value]="tipousuario.id" *ngFor="let tipousuario of this.tipousuario">{{ tipousuario.nombre }}</option>
+            </select>
+          </div>
+        </div>
+
+        
+
+
+
+        <button (click)="onSubmit()" class="btn btn-primary">Guardar</button>
+        
+
+      </form>
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="oLocation.back()" style="margin-top: 20px;">Close</button>
+      
+    </div>
+    
+  </div>
+</div>
+
+
+
+<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        {{modalContent}}
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  form {
+    justify-content: center;
+    
+  }
+</style>

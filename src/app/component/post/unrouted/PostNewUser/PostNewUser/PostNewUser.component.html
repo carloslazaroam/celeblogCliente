@@ -1,0 +1,104 @@
+<div class="container mt-5"  style="background-color: white; color: black; border-radius: 20px; margin-bottom: 40px;box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; font-family: 'HP Simplified';">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Crear post</h1>
+
+      <form [formGroup]="oForm">
+
+
+        <div class="mb-3 row">
+          <label for="inputcontenido" class="col-sm-2 col-form-label">Title</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" id="inputName" formControlName="title"
+              [class.is-invalid]="CampoNoValido('title')"
+              [class.is-valid]="!CampoNoValido('title') && touched('contenido')">
+            <div *ngIf="CampoNoValido('title')" id="inputNameFeedback" class="invalid-feedback">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputcontenido" class="col-sm-2 col-form-label">Contenido</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control" id="inputName" formControlName="contenido"
+              [class.is-invalid]="CampoNoValido('contenido')"
+              [class.is-valid]="!CampoNoValido('contenido') && touched('contenido')">
+            <div *ngIf="CampoNoValido('contenido')" id="inputNameFeedback" class="invalid-feedback">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mb-3 row">
+          <label for="usuario" class="col-sm-2 col-form-label">Usuario</label>
+          <div class="col-sm-4 has-validation">
+            <select name="usuario" id="usuario" formControlName="id_usuario" (change)="getUserPage()">
+              <option [value]="user.id" *ngFor="let user of this.users">{{ user.nombre }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="categoria" class="col-sm-2 col-form-label">Categoria</label>
+          <div class="col-sm-4 has-validation">
+            <select name="id_categoria" id="id_categoria" formControlName="id_categoria" (change)="getUserPage()">
+              <option [value]="categoria.id" *ngFor="let categoria of this.categorias">{{ categoria.nombre }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputName" class="col-sm-2 col-form-label">Imagen de usuario</label>
+          <div class="col-sm-4 has-validation">
+            <input  type="file" class="form-control" id="inputusuario" (change)="loadFile($event)" formControlName="file"
+              [class.is-invalid]="CampoNoValido('file')"
+              [class.is-valid]="!CampoNoValido('file') && touched('file')">
+              
+            <div id="inputusuarioFeedback" class="invalid-feedback" *ngIf="CampoNoValido('file')">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+
+        <button (click)="onSubmit()" class="btn btn-primary">Guardar</button>
+        
+
+      </form>
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="oLocation.back()" style="margin-top: 20px;">Close</button>
+      
+    </div>
+    
+  </div>
+</div>
+
+
+
+<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        {{modalContent}}
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  form {
+    justify-content: center;
+    
+  }
+</style>

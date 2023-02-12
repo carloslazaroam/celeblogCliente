@@ -38,7 +38,7 @@ export class CategoriaNewAdminComponent implements OnInit {
 
     this.getTipoCategoria();
     this.oForm = this.oFormBuilder.group({
-      nombre: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(10)]],
+      nombre: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(20)]],
       descripcion: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(255)]],
       id_tipocategoria: ['', [Validators.required]]
   

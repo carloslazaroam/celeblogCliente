@@ -58,67 +58,17 @@
           <p>{{post.title}}</p>
         </div>
         <div  class="hero-date">
-          <p>20.02.2019</p>
+          <p>{{post.datetime | date: "dd/MM/yyyy"}}</p>
         </div>
         <div class="hero-btn">
-          <a [routerLink]="['/admin/post/view',post.id]">Learn More</a>
+          <a [routerLink]="['/user/post/view/',post.id]">Contenido</a>
         </div>
       </div>
     </div>
 
 
     
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr class="lostr">
-            <th (click)="setOrder('id')">ID
-              <div *ngIf="sortField=='id'&&sortDirection=='asc'">^</div>
-              <div *ngIf="sortField=='id'&&sortDirection=='desc'">_</div>
-            </th>
-            <th (click)="setOrder('title')">Titulo
-              <div *ngIf="sortField=='title'&&sortDirection=='asc'">^</div>
-              <div *ngIf="sortField=='title'&&sortDirection=='desc'">_</div>
-            </th>
-            <th (click)="setOrder('contenido')">Contenido
-              <div *ngIf="sortField=='contenido'&&sortDirection=='asc'">^</div>
-              <div *ngIf="sortField=='contenido'&&sortDirection=='desc'">_</div>
-            </th>
-            <th (click)="setOrder('datetime')">Data</th>
-            <th (click)="setOrder('usuario')">Usuario</th>
-            <th (click)="setOrder('categoria')">Categoria</th>
-            <th (click)="setOrder('image')">Imagen</th>
-            <th (click)="setOrder('usuario')">Botones</th>
-            
-            
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let post of responseFromServer?.content">
-            <td style="font-family: 'Serpentine';">{{post.id}}</td>
-            <td>{{post.title}}</td>
-            <td>{{post.contenido}}</td>
-            <td>{{post.datetime}}</td>
-            <td>{{post.usuario.usuario}}</td> 
-            <td>{{post.categoria.nombre}}</td> 
-            <td><img [src]="this.getURLimage( post.images)" alt="user-profile" width="35px" height="35px" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;border-radius: 10px;"></td> 
-                    
-            <td>
-              <div class="btn-group" role="group" aria-label="Herramientas">
-                <button class="btn btn-sm btn-primary" [routerLink]="['/admin/post/view',post.id]">
-                  <img width="20" src="/assets/eyeicono.png" alt="cositas"/>
-                </button>
-                <button class="btn btn-sm btn-warning" [routerLink]="['/admin/post/edit',post.id]">
-                  <img width="20" src="/assets/hand.png" alt="cositas" style="-webkit-border-image: 1px black"/>
-                </button>
-                <button class="btn btn-sm btn-danger" [routerLink]="['/admin','post','delete',post.id]">
-                  <img width="20" src="/assets/papelera.png" alt="cositas"/>
-                </button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+
 
       <div class="col-md" id="pagi">
         <app-pagination-unrouted [nPage]="responseFromServer?.actualPage + 1" [nTotalPages]="totalPages"
