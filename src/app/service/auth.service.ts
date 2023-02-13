@@ -34,8 +34,6 @@ export class AuthService {
     return this.oHttp.post<string>(url, body, {headers: environment.headers});
   }
 
-  
-
   checkToken(){
     const url = `${environment.baseURL}/${this.authURL}/checktoken`;
     const headers = {
@@ -54,11 +52,13 @@ export class AuthService {
       error: (err: HttpErrorResponse) => {
         this.stateLogin.next(false);
       }
-    });;
+    });
   }
 
   logOut(){
     if(sessionStorage.getItem("token") != null){
+        sessionStorage.removeItem("tipousuario");
+        sessionStorage.removeItem("id");
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("imagen");
         this.stateLogin.next(false);

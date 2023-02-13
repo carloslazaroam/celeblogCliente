@@ -18,7 +18,7 @@ export class PostPlistUserComponent implements OnInit {
  
 
   strTermFilter: string = "";
-  numberOfElements: number = 5;
+  numberOfElements: number = 6;
   page: number = 0;
   totalPages: number = 0;
   sortField: string = "";

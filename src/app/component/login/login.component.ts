@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit{
             console.log(resp.imagen)
             sessionStorage.setItem("imagen", JSON.stringify(this.getURLimage(resp.imagen)));
             sessionStorage.setItem("token", resp.token);
+            sessionStorage.setItem("id", String(resp.id));
             sessionStorage.setItem("tipousuario", resp.tipousuario);
             this.oAuthService.stateLogin.next(true);
             this.error = false;

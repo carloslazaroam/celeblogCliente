@@ -46,7 +46,6 @@ export class UserNewUserComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       file: ['',[Validators.required]],
       images: [''],
-      id_tipousuario: ['', [Validators.required]],
       folder: ['Perfiles', [Validators.required]]
     });
   }
@@ -61,7 +60,6 @@ export class UserNewUserComponent implements OnInit {
       form.append('email', this.oForm.value.email);
       form.append('usuario', this.oForm.value.usuario);
       form.append('password', this.oForm.value.password);
-      form.append('id_tipousuario', this.oForm.value.id_tipousuario);
       form.append('folder', 'Perfiles');
       form.append('image', this.oForm.value.images);
 

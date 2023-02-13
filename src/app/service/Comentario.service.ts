@@ -19,7 +19,7 @@ export class ComentarioService {
         this.url = `${environment.baseURL}${this.entityURL}`;
     }
 
-    getComentarioPlist(page: number, size: number, termino: string, strSortField: string, strOrderDirection: string ): Observable<ComentarioResponse> {
+    getComentarioPlist(page: number, size: number, termino: string, strSortField: string, strOrderDirection: string, id_post?: number ): Observable<ComentarioResponse> {
         let params = new HttpParams()
           .set("contenido", termino)
           .set("page", page)
@@ -30,6 +30,10 @@ export class ComentarioService {
             if (strOrderDirection != "") {
               params = params.set("direction", strOrderDirection);
             }
+          }
+
+          if (id_post){
+            params = params.set("id_post", id_post)
           }
           const headers = {
             'content-type': 'application/json',

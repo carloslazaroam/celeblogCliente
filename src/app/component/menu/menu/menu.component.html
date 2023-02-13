@@ -55,16 +55,16 @@
     
     <nav>
       <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="home">Home</a>
-      <a class="nav-link" aria-current="page" routerLink="usuario" *ngIf="this.logged">User</a>
-      <a class="nav-link" aria-current="page" routerLink="post" *ngIf="this.logged">Post</a>
-      <a class="nav-link" aria-current="page" routerLink="comentario" *ngIf="this.logged">Comentario</a>
-      <a class="nav-link" aria-current="page" routerLink="categoria" *ngIf="this.logged">Categoria</a>
-      <a class="nav-link" aria-current="page" routerLink="postuser" *ngIf="!this.logged">Blog</a>
-      <a class="nav-link" aria-current="page"  [routerLink]="['/user/post/new']" *ngIf="!this.logged">Publicar</a>
+      <a class="nav-link" aria-current="page" routerLink="usuario" *ngIf="this.logged && this.tipousuario === 'admin'">User</a>
+      <a class="nav-link" aria-current="page" routerLink="post" *ngIf="this.logged && this.tipousuario === 'admin'">Post</a>
+      <a class="nav-link" aria-current="page" routerLink="comentario" *ngIf="this.logged && this.tipousuario === 'admin'">Comentario</a>
+      <a class="nav-link" aria-current="page" routerLink="categoria" *ngIf="this.logged  && this.tipousuario === 'admin'">Categoria</a>
+      <a class="nav-link" aria-current="page" routerLink="postuser" *ngIf="tipousuario !== 'admin'">Blog</a>
+      <a class="nav-link" aria-current="page"  [routerLink]="['/user/post/new']" *ngIf="this.logged && this.tipousuario === 'user'">Publicar</a>
 
       <a class="nav-link" aria-current="page" routerLink="/login" *ngIf="!logged">Login</a>
       <a (click)="logout()" class="nav-link c-pointer" aria-current="page" routerLink="/home" *ngIf="this.logged">Logout</a>
-      <img [src]="this.images" alt="user-profile" width="70px" height="50px" class="imagenusuario" style="margin-left: 28rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;" *ngIf="logged">
+      <img routerLink="user/mis-datos" [src]="this.images" alt="user-profile" width="70px" height="50px" class="imagenusuario" style="margin-left: 28rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;" *ngIf="logged">
     </nav>
   </div>
 </header>

@@ -15,8 +15,8 @@
             </div> 
             <hr>
             <div style="font-size: 15px; line-height: 20px;">Autor/a del post: {{post.usuario.nombre}} {{post.usuario.apellidos}}</div>  
-            <svg  [routerLink]="['/user/post/edit/',post.id]" width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M14.363 5.652l1.48-1.48a2 2 0 012.829 0l1.414 1.414a2 2 0 010 2.828l-1.48 1.48m-4.243-4.242l-9.616 9.615a2 2 0 00-.578 1.238l-.242 2.74a1 1 0 001.084 1.085l2.74-.242a2 2 0 001.24-.578l9.615-9.616m-4.243-4.242l4.243 4.242" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              
+            <svg *ngIf="post.usuario.id === idUsuarioSesion" [routerLink]="['/user/post/edit/',post.id]" width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M14.363 5.652l1.48-1.48a2 2 0 012.829 0l1.414 1.414a2 2 0 010 2.828l-1.48 1.48m-4.243-4.242l-9.616 9.615a2 2 0 00-.578 1.238l-.242 2.74a1 1 0 001.084 1.085l2.74-.242a2 2 0 001.24-.578l9.615-9.616m-4.243-4.242l4.243 4.242" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <svg *ngIf="post.usuario.id === idUsuarioSesion" [routerLink]="['/user/post/delete/',post.id]" width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M20 9l-1.995 11.346A2 2 0 0116.035 22h-8.07a2 2 0 01-1.97-1.654L4 9M21 6h-5.625M3 6h5.625m0 0V4a2 2 0 012-2h2.75a2 2 0 012 2v2m-6.75 0h6.75" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                
             
       </div>
@@ -38,33 +38,15 @@
   </div>
   <div class="actionBox">
       <ul class="commentList">
-          <li>
+          <li  *ngFor="let comentario of responseFromServer?.content"  >
               <div class="commenterImage">
-                <img src="http://placekitten.com/50/50" />
+                <img [src]="this.getURLimage( comentario.usuario.images)" />
               </div>
               <div class="commentText">
-                  <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+                  <p class="">{{comentario.contenido}}</p> <span class="date sub-text">on {{comentario.datetime | date: "dd/MM/yyyy"}}</span>
 
               </div>
-          </li>
-          <li>
-              <div class="commenterImage">
-                <img src="http://placekitten.com/45/45" />
-              </div>
-              <div class="commentText">
-                  <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span class="date sub-text">on March 5th, 2014</span>
-
-              </div>
-          </li>
-          <li>
-              <div class="commenterImage">
-                <img src="http://placekitten.com/40/40" />
-              </div>
-              <div class="commentText">
-                  <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
-
-              </div>
-          </li>
+          </li>  
       </ul>
       <form class="form-inline" role="form">
           <div class="form-group">

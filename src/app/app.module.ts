@@ -38,6 +38,7 @@ import { UserNewUserComponent } from './component/user/unrouted/UserNewUser/User
 import { UserViewUserComponent } from './component/user/unrouted/UserViewUser/UserViewUser/UserViewUser.component';
 import { PostNewUserComponent } from './component/post/unrouted/PostNewUser/PostNewUser/PostNewUser.component';
 import { PostEditUserComponent } from './component/post/unrouted/PostEditUser/PostEditUser/PostEditUser.component';
+import { UserEditUserComponent } from './component/user/unrouted/UserEditUser/UserEditUser/UserEditUser.component';
 
 
 
@@ -62,6 +63,7 @@ import { PostEditUserComponent } from './component/post/unrouted/PostEditUser/Po
 
         UserNewUserComponent,
         UserViewUserComponent,
+        UserEditUserComponent,
 
         PostPlistComponent,
         PostViewAdminComponent,
@@ -74,6 +76,7 @@ import { PostEditUserComponent } from './component/post/unrouted/PostEditUser/Po
         PostViewUserComponent,
         PostNewUserComponent,
         PostEditUserComponent,
+        PostDeleteAdminComponent,
 
         ComentarioPlistAdminComponent,
         ComentarioViewAdminComponent,

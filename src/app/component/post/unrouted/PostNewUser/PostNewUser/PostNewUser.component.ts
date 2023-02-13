@@ -46,9 +46,8 @@ export class PostNewUserComponent implements OnInit {
     this.getUserPage();
     this.getCategoriaPage();
     this.oForm = this.oFormBuilder.group({
-      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(255)  ]],
+      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(255)]],
       contenido: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(255)]],
-      id_usuario: [, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]],
       file: ['',[Validators.required]],
       images: [''],
       id_categoria: ['', [Validators.required]],
@@ -91,7 +90,7 @@ export class PostNewUserComponent implements OnInit {
       let form = new FormData();
       form.append('title', this.oForm.value.title);
       form.append('contenido', this.oForm.value.contenido);
-      form.append('id_usuario', this.oForm.value.id_usuario);
+      form.append('id_usuario', sessionStorage.getItem("id"));
       form.append('id_categoria', this.oForm.value.id_categoria);
       form.append('folder', 'postimages');
       form.append('image', this.oForm.value.images);
@@ -100,7 +99,7 @@ export class PostNewUserComponent implements OnInit {
         next: (data: number) => {
           //open bootstrap modal here
           this.modalTitle = "Cambios realizados";
-          this.modalContent = "El usuario " + data + " ha sido creado.";
+          this.modalContent = "El post " + data + " ha sido creado.";
           this.showModal(data);
         }
       });
@@ -122,7 +121,7 @@ export class PostNewUserComponent implements OnInit {
     })
     var myModalEl = document.getElementById(this.mimodal);
     myModalEl.addEventListener('hidden.bs.modal', (event): void => {
-      this.oRouter.navigate(['/admin/post/view', data])
+      this.oRouter.navigate(['/user/post/view', data])
     })
     this.myModal.show()
   }

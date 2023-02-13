@@ -14,6 +14,8 @@ export class MenuComponent implements OnInit {
 
   logged = false;
   images!: string;
+  tipousuario: string
+  idUsuarioSesion: string
 
   ngOnInit(): void {
     this.oAuthService.stateLogin
@@ -22,8 +24,12 @@ export class MenuComponent implements OnInit {
         this.logged = resp;
         if(resp) {
           this.images =  sessionStorage.getItem("imagen")?.replaceAll('"', '') + '';
+          this.tipousuario = sessionStorage.getItem("tipousuario")
+          this.idUsuarioSesion = sessionStorage.getItem("id")
         }else{
           this.images = '';
+          this.tipousuario = '';
+          this.idUsuarioSesion = '';
         }
       }
     });

@@ -26,6 +26,7 @@ export class UserViewUserComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.id = parseInt(sessionStorage.getItem("id"))
     this.oUserService.getOne(this.id)
     .subscribe({
       next: (resp: User) => {

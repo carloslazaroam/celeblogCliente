@@ -27,6 +27,9 @@ import { PostViewUserComponent } from './component/post/unrouted/PostViewUser/Po
 import { UserNewUserComponent } from './component/user/unrouted/UserNewUser/UserNewUser/UserNewUser.component';
 import { PostNewUserComponent } from './component/post/unrouted/PostNewUser/PostNewUser/PostNewUser.component';
 import { PostEditUserComponent } from './component/post/unrouted/PostEditUser/PostEditUser/PostEditUser.component';
+import { PostDeleteUserComponent } from './component/post/unrouted/PostDeleteUser/PostDeleteUser/PostDeleteUser.component';
+import { UserViewUserComponent } from './component/user/unrouted/UserViewUser/UserViewUser/UserViewUser.component';
+import { UserEditUserComponent } from './component/user/unrouted/UserEditUser/UserEditUser/UserEditUser.component';
 
 
 
@@ -42,6 +45,8 @@ const routes: Routes = [
 
   { path: 'usuari/user/new', component: UserNewUserComponent},
   { path: 'user/usuari/view/:id', component: UserViewComponent},
+  { path: 'user/mis-datos', component: UserViewUserComponent},
+  { path: 'edit', component: UserEditUserComponent},
 
   { path: 'post', component: PostPlistComponent},
   { path: 'admin/post/view/:id', component: PostViewAdminComponent, canActivate: [UserGuard], canLoad: [UserGuard]},
@@ -53,6 +58,7 @@ const routes: Routes = [
   { path: 'user/post/view/:id', component: PostViewUserComponent},
   { path: 'user/post/new', component: PostNewUserComponent},
   { path: 'user/post/edit/:id', component: PostEditUserComponent},
+  { path: 'user/post/delete/:id', component: PostDeleteUserComponent},
   
   
   
