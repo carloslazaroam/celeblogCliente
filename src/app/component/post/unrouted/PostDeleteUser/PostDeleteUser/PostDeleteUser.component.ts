@@ -33,7 +33,7 @@ export class PostDeleteUserComponent implements OnInit {
         const myModal = new bootstrap.Modal('#removeInfo', {
           keyboard: false
         })
-        myModal.show();        
+             
         this.oLocation.back();
       }
     })

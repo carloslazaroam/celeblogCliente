@@ -38,7 +38,6 @@
               <div *ngIf="sortField=='contenido'&&sortDirection=='desc'">_</div>
             </th>
             <th (click)="setOrder('datetime')">Data</th>
-            <th (click)="setOrder('puntuacion')">Puntuacion</th>
             <th (click)="setOrder('post')">Post</th>
             <th (click)="setOrder('usuario')">Usuario</th>
             
@@ -54,7 +53,6 @@
             <td style="font-family: 'Serpentine';">{{comentario.id}}</td>
             <td>{{comentario.contenido}}</td>
             <td>{{comentario.datetime | date: "dd/MM/yyyy"}}</td>
-            <td>{{comentario.puntuacion}}</td>
             <td>{{comentario.post.title}}</td>
             <td>{{comentario.usuario.usuario}}</td> 
             

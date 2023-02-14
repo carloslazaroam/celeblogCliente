@@ -1,0 +1,16 @@
+.user-image{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+.btn btn-secondary{
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-radius: 20px;
+    color: black;
+}

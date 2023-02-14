@@ -17,17 +17,7 @@
           </div>
         </div>
 
-        <div class="mb-3 row">
-          <label for="inputEmail" class="col-sm-2 col-form-label">Puntuacion</label>
-          <div class="col-sm-4 has-validation">
-            <input type="number" class="form-control" id="inputEmail" formControlName="puntuacion"
-              [class.is-invalid]="CampoNoValido('puntuacion')"
-              [class.is-valid]="!CampoNoValido('puntuacion') && touched('puntuacion')">
-            <div id="inputEmailFeedback" class="invalid-feedback" *ngIf="CampoNoValido('puntuacion')">
-              El campo es obligatorio.
-            </div>
-          </div>
-        </div>
+        
 
         <div class="mb-3 row">
           <label for="usuario" class="col-sm-2 col-form-label">Usuario</label>

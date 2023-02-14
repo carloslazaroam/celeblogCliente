@@ -47,7 +47,6 @@ export class ComentarioNewAdminComponent implements OnInit {
     this.getUserPage();
     this.oForm = this.oFormBuilder.group({
       contenido: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(255)]],
-      puntuacion: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(255)  ]],
       id_usuario: [, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]],
       id_post: [, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]],
     });

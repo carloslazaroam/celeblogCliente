@@ -29,12 +29,12 @@
 
 <div class="detailBox" style="position: absolute; z-index: 2;">
   <div class="titleBox">
-    <label>Comment Box</label>
-      <button type="button" class="close" aria-hidden="true">&times;</button>
+    <label>Caja de comentarios</label>
+      
   </div>
   <div class="commentBox">
       
-      <p class="taskDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <p class="taskDescription">Aquí se van a ir almacenando los comentarios, por favor no utilices lenguaje soez ni discrimines a nadie o tu comentario será borrado.</p>
   </div>
   <div class="actionBox">
       <ul class="commentList">
@@ -43,17 +43,18 @@
                 <img [src]="this.getURLimage( comentario.usuario.images)" />
               </div>
               <div class="commentText">
-                  <p class="">{{comentario.contenido}}</p> <span class="date sub-text">on {{comentario.datetime | date: "dd/MM/yyyy"}}</span>
+                  <p class="">{{comentario.contenido}}</p> <span class="date sub-text">{{comentario.usuario.usuario}} on {{comentario.datetime | date: "dd/MM/yyyy"}}</span>
+                  <svg *ngIf="comentario.usuario.id === idUsuarioSesion" (click)="removeOne(comentario.id)" width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M20 9l-1.995 11.346A2 2 0 0116.035 22h-8.07a2 2 0 01-1.97-1.654L4 9M21 6h-5.625M3 6h5.625m0 0V4a2 2 0 012-2h2.75a2 2 0 012 2v2m-6.75 0h6.75" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 
               </div>
           </li>  
       </ul>
-      <form class="form-inline" role="form">
+      <form class="form-inline" role="form" [formGroup]="this.oForm">
           <div class="form-group">
-              <input class="form-control" type="text" placeholder="Your comments" />
+              <input class="form-control" type="text" placeholder="Your comments" formControlName="contenido"/>
           </div>
           <div class="form-group">
-              <button class="btn btn-default">Add</button>
+              <button   (click)="onSubmit()" class="btn btn-default" style="background-color: black; color: white;" >Crear</button>
           </div>
       </form>
   </div>
