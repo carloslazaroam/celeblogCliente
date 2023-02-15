@@ -25,8 +25,6 @@ export class UserEditUserComponent implements OnInit {
     email: ['', [Validators.required, Validators.email  ]],
     usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
     tipousuario: ['', [Validators.required]],
-    
-
   });
   mimodal: string = "miModal";
   myModal: any;
@@ -62,8 +60,7 @@ export class UserEditUserComponent implements OnInit {
           apellidos: data.apellidos,
           email: data.email,
           usuario: data.usuario,
-          tipousuario:  data.usuario
-          
+          tipousuario:  data.tipousuario.id
         });
       }
     })
@@ -111,7 +108,7 @@ export class UserEditUserComponent implements OnInit {
     })
     var myModalEl = document.getElementById(this.mimodal);
     myModalEl.addEventListener('hidden.bs.modal', (event): void => {
-      this.oRouter.navigate(['/admin/user/view', this.id])
+      this.oRouter.navigate(['/user/mis-datos', this.id])
     })
     this.myModal.show()
   }
